@@ -86,39 +86,62 @@ var upperCasedCharacters = [
 ];
 
 
+
 //Promts
-var passlength = window.prompt("How long do want the password to be? (8-128 characters)")
-var uppercaseConfirm = window.prompt("Should it include uppercase letters? (Y/N?)")
-var lowercaseCofirm = window.prompt("Should it include lowercase letter (Y/N?)")
-var numConfirm = window.prompt("Should it include numbers? (Y/N?)")
-var spCharaConfirm = window.prompt("Should it special characters? (Y/N?)")
+//TODO Make them do something
+var passlength = window.prompt("How long do want the password to be? (8-128 characters)");
+var uppercaseConfirm = window.prompt("Should it include uppercase letters? (Y/N?)");
+var lowercaseConfirm = window.prompt("Should it include lowercase letter (Y/N?)");
+var numConfirm = window.prompt("Should it include numbers? (Y/N?)");
+var spCharaConfirm = window.prompt("Should it special characters? (Y/N?)");
 
 function getRandomUpper() {
-  return String.fromCharCode(Math.floor(Math.random() * 26) + 97);
+  return upperCasedCharacters[Math.floor(Math.random() * upperCasedCharacters.length)];
 }
 function getRandomLower() {
-  return String.fromCharCode(Math.floor(Math.random() * 26) + 97);
+  return lowerCasedCharacters[Math.floor(Math.random() * lowerCasedCharacters.length)];
 }
-function getRandomNumber() {
-  return String.fromCharCode(Math.floor(Math.random() * 10) + 48);
+function getRandomNum() {
+  return numericCharacters[Math.floor(Math.random() * numericCharacters.length)];
 }
-function getRandomSymbol() {
-  return  specialCharacters[Math.floor(Math.random() *  specialCharacters.length)];
+function getRandomSpChara() {
+  return specialCharacters[Math.floor(Math.random() *  specialCharacters.length)];
 }
 
-console.log(getRandomSymbol())
+//Listener and Promt Checker
+//generateBtn.addEventListener("click", () => {
+//  var length = passlength.value;
+//  var upper = uppercaseConfirm;
+//  var lower = lowercaseConfirm;
+//  var numbers = numConfirm;
+//  var spChara = spCharaConfirm;
+//  results.value =generatePassword(upper, lower, numbers, spChara, length)
+//});
 
-
-
-//PasswordGenerator
+//PasswordGenerator function
 function generatePassword() {
-        charset = numericCharacters,
-        password = "";
-    for (var i = 0, n = charset.length; i < passlength; i) {
-        password += charset.substring(Math.floor(Math.random() * n));
-    }
-    return password;
+       var tempPassword = "";
+       var y = true;
+
+       for (let i = 0; i < length; i++){
+          if(uppercaseConfirm = y){
+            tempPassword += getRandomUpper
+        }
+        if(lowercaseConfirm = y){
+          tempPassword += getRandomLower
+      }  if(numConfirm = y){
+        tempPassword += getRandomNum
+    }  if(spCharaConfirm = y){
+      tempPassword += getRandomSpChara
+  }
 }
 
-// Add event listener to generate button
-generateBtn.addEventListener("click", generatePassword);
+var password = tempPassword.slice(0, passlength);
+
+return password;
+
+}
+
+console.log(password)
+
+
