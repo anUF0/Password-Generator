@@ -4,7 +4,7 @@ var specialCharacters = [
   '@',
   '%',
   '+',
-  '\\',
+  //'\',
   '/',
   "'",
   '!',
@@ -86,22 +86,39 @@ var upperCasedCharacters = [
 ];
 
 
+//Promts
+var passlength = window.prompt("How long do want the password to be? (8-128 characters)")
+var uppercaseConfirm = window.prompt("Should it include uppercase letters? (Y/N?)")
+var lowercaseCofirm = window.prompt("Should it include lowercase letter (Y/N?)")
+var numConfirm = window.prompt("Should it include numbers? (Y/N?)")
+var spCharaConfirm = window.prompt("Should it special characters? (Y/N?)")
 
-//Add Prompts
+function getRandomUpper() {
+  return String.fromCharCode(Math.floor(Math.random() * 26) + 97);
+}
+function getRandomLower() {
+  return String.fromCharCode(Math.floor(Math.random() * 26) + 97);
+}
+function getRandomNumber() {
+  return String.fromCharCode(Math.floor(Math.random() * 10) + 48);
+}
+function getRandomSymbol() {
+  return  specialCharacters[Math.floor(Math.random() *  specialCharacters.length)];
+}
+
+console.log(getRandomSymbol())
 
 
+
+//PasswordGenerator
 function generatePassword() {
-    var passlength = 8,
         charset = numericCharacters,
         password = "";
-    for (var i = 0, n = charset.length; i < passlength; ++i) {
+    for (var i = 0, n = charset.length; i < passlength; i) {
         password += charset.substring(Math.floor(Math.random() * n));
     }
     return password;
 }
 
 // Add event listener to generate button
-//generateBtn.addEventListener("click", writePassword);
-
-//Call function upon click
-generatePassword()
+generateBtn.addEventListener("click", generatePassword);
