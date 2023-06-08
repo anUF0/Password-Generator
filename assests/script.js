@@ -97,23 +97,27 @@ else if(chosenLength > 128){
 
 //TODO makes these no longer case sensative
 var uppercase = false;
-var uppercaseConfirm = window.prompt("Should it include uppercase letters? (Y/N?)");
-if(uppercaseConfirm == 'y')
-{uppercase = true;}
+var uppercaseInput = window.prompt("Should it include uppercase letters? (Y/N?)");
+var uppercaseConfirm = uppercaseInput.toLowerCase();
+if(uppercaseConfirm === 'y')
+{uppercase = true};
 
 var lowercase = false;
-var lowercaseConfirm = window.prompt("Should it include lowercase letter (Y/N?)");
+var lowercaseInput = window.prompt("Should it include lowercase letter (Y/N?)");
+var lowercaseConfirm =  lowercaseInput.toLowerCase();
 if(lowercaseConfirm == 'y')
 {lowercase = true;}
 
 var numbers = false;
-var numConfirm = window.prompt("Should it include numbers? (Y/N?)");
+var numInput = window.prompt("Should it include numbers? (Y/N?)");
+var numConfirm =  numInput.toLowerCase();
 if(numConfirm == 'y'){
   numbers = true;
 };
 
 var spChara = false;
-var spCharaConfirm = window.prompt("Should it special characters? (Y/N?)");
+var spCharaInput = window.prompt("Should it special characters? (Y/N?)");
+var spCharaConfirm =  spCharaInput.toLowerCase();
 if(spCharaConfirm == 'y'){
   spChara = true;
 };
