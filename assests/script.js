@@ -84,7 +84,7 @@ var upperCasedCharacters = [
   'Z'
 ];
 
-//Promts
+//Prompt for Length
 var passLength = 0;
 var chosenLength = window.prompt("How long do want the password to be? (8-128 characters, other inputs will be set to min/max)");
 if(chosenLength <  8){passLength = 8}
@@ -94,6 +94,7 @@ else if(chosenLength > 128){
  passLength = chosenLength;
 };
 
+//Prompt for Uppercase
 var uppercase = false;
 var uppercaseInput = window.prompt("Should it include uppercase letters? (Y/N?)");
 var uppercaseConfirm = uppercaseInput.toLowerCase();
@@ -101,6 +102,7 @@ if(uppercaseConfirm === 'y')
 {uppercase = true;
 };
 
+//Prompt for Lowercase
 var lowercase = false;
 var lowercaseInput = window.prompt("Should it include lowercase letter (Y/N?)");
 var lowercaseConfirm =  lowercaseInput.toLowerCase();
@@ -108,6 +110,7 @@ if(lowercaseConfirm == 'y')
 {lowercase = true;
 };
 
+//Prompt for Numeric Characters
 var numbers = false;
 var numInput = window.prompt("Should it include numbers? (Y/N?)");
 var numConfirm =  numInput.toLowerCase();
@@ -115,6 +118,7 @@ if(numConfirm == 'y'){
   numbers = true;
 };
 
+//Prompt for Special Characters
 var spChara = false;
 var spCharaInput = window.prompt("Should it special characters? (Y/N?)");
 var spCharaConfirm =  spCharaInput.toLowerCase();
@@ -136,12 +140,13 @@ function getRandomSpChara() {
   return specialCharacters[Math.floor(Math.random() *  specialCharacters.length)];
 }
 
+//Listerner for the click that activates the function further below
 generateBtn.addEventListener("click", () => {
 password.value = writePassword(uppercase, lowercase, numbers, spChara, passLength)
 });
 
 
-//PasswordGenerator
+//Password Generator
 function writePassword(uppercase, lowercase, numbers, spChara, passLength) {
        let tempPassword = '';
        for (let i = 0; i < passLength; i++){
