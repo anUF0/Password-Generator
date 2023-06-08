@@ -107,36 +107,44 @@ function getRandomSpChara() {
   return specialCharacters[Math.floor(Math.random() *  specialCharacters.length)];
 }
 
-generateBtn.addEventListener("click", () => {
- var passLength
- 
+//Prompt Checkers
+var passLength = 0;{
+  if(chosenLength <  8){passLength = 8}
+else if(chosenLength > 128){
+ chosenLength = 128
+} else{
+ passLength = chosenLength;
+}
+}
 
- if(chosenLength <  8){
- passLength === 8;
-  } else if(chosenLength > 128){
-    chosenLength === 128;
-  } else {
-    chosenLength = passLength
-  }
-  if(uppercaseConfirm = 'y'){
-    uppercase = true;
-  }
-  if(lowercaseConfirm = 'y'){
-    lowercase= true;
-  }
-  if(numConfirm = 'y'){
-    numbers = true;
-  }
-  if(spCharaConfirm = 'y'){
-    spChara = true;
-  }
-  password.value = generatePassword(uppercase, lowercase, numbers, spChara, passLength)
-});
+var uppercase = false; {if(uppercaseConfirm == 'y'){
+  uppercase = true;
+}
+}
+
+var lowercase = false;{
+if(lowercaseConfirm == 'y'){
+  lowercase= true;
+}
+}
+
+var numbers = false;{
+if(numConfirm == 'y'){
+  numbers = true;
+}}
+
+var spChara = false;{
+if(spCharaConfirm == 'y'){
+  spChara = true;
+}
+}
+
+
 
 
 //PasswordGenerator function
 function generatePassword(uppercase, lowercase, numbers, spChara, passLength) {
-       let tempPassword = "";
+       let tempPassword = '';
        let variationsCount = [uppercase, lowercase, numbers, spChara].passLength;
 
        for (let i = 0; i < passLength; i+= variationsCount){
@@ -157,7 +165,4 @@ var password = tempPassword.slice(0, passLength);
 return password;
 }
 
-
-
-
-
+generateBtn.addEventListener("click", generatePassword) 
