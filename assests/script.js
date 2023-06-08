@@ -1,10 +1,9 @@
-// Assignment Code
+// Constants
 var generateBtn = document.querySelector("#generate");
 var specialCharacters = [
   '@',
   '%',
   '+',
-  //'\',
   '/',
   "'",
   '!',
@@ -90,23 +89,24 @@ var passLength = 0;
 var chosenLength = window.prompt("How long do want the password to be? (8-128 characters, other inputs will be set to min/max)");
 if(chosenLength <  8){passLength = 8}
 else if(chosenLength > 128){
- chosenLength = 128
+ passLength = 128
 } else{
  passLength = chosenLength;
-}
+};
 
-//TODO makes these no longer case sensative
 var uppercase = false;
 var uppercaseInput = window.prompt("Should it include uppercase letters? (Y/N?)");
 var uppercaseConfirm = uppercaseInput.toLowerCase();
 if(uppercaseConfirm === 'y')
-{uppercase = true};
+{uppercase = true;
+};
 
 var lowercase = false;
 var lowercaseInput = window.prompt("Should it include lowercase letter (Y/N?)");
 var lowercaseConfirm =  lowercaseInput.toLowerCase();
 if(lowercaseConfirm == 'y')
-{lowercase = true;}
+{lowercase = true;
+};
 
 var numbers = false;
 var numInput = window.prompt("Should it include numbers? (Y/N?)");
@@ -139,7 +139,6 @@ function getRandomSpChara() {
 generateBtn.addEventListener("click", () => {
 password.value = writePassword(uppercase, lowercase, numbers, spChara, passLength)
 });
-
 
 
 //PasswordGenerator
