@@ -85,14 +85,8 @@ var upperCasedCharacters = [
   'Z'
 ];
 
-var passLength = 0;
-var uppercase = false;
-var lowercase = false;
-var numbers = false;
-var spChara = false;
-
-
 //Promts
+var passLength = 0;
 var chosenLength = window.prompt("How long do want the password to be? (8-128 characters, other inputs will be set to min/max)");
 if(chosenLength <  8){passLength = 8}
 else if(chosenLength > 128){
@@ -101,20 +95,24 @@ else if(chosenLength > 128){
  passLength = chosenLength;
 }
 
+//TODO makes these no longer case sensative
+var uppercase = false;
 var uppercaseConfirm = window.prompt("Should it include uppercase letters? (Y/N?)");
 if(uppercaseConfirm == 'y')
-{uppercase === true;}
+{uppercase = true;}
 
+var lowercase = false;
 var lowercaseConfirm = window.prompt("Should it include lowercase letter (Y/N?)");
 if(lowercaseConfirm == 'y')
-{lowercase === true;}
+{lowercase = true;}
 
-
+var numbers = false;
 var numConfirm = window.prompt("Should it include numbers? (Y/N?)");
 if(numConfirm == 'y'){
   numbers = true;
 };
 
+var spChara = false;
 var spCharaConfirm = window.prompt("Should it special characters? (Y/N?)");
 if(spCharaConfirm == 'y'){
   spChara = true;
