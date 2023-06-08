@@ -141,9 +141,7 @@ password.value = writePassword(uppercase, lowercase, numbers, spChara, passLengt
 //PasswordGenerator
 function writePassword(uppercase, lowercase, numbers, spChara, passLength) {
        let tempPassword = '';
-       let variationsCount = [uppercase, lowercase, numbers, spChara].passlength;
-
-       for (let i = 0; i < passLength; i+= variationsCount){
+       for (let i = 0; i < passLength; i++){
           if(uppercase=== true){
             tempPassword += getRandomUpper();
         }
