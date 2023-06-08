@@ -85,15 +85,42 @@ var upperCasedCharacters = [
   'Z'
 ];
 
-const password = document.querySelector("#password");
+var passLength = 0;
+var uppercase = false;
+var lowercase = false;
+var numbers = false;
+var spChara = false;
+
 
 //Promts
 var chosenLength = window.prompt("How long do want the password to be? (8-128 characters, other inputs will be set to min/max)");
-var uppercaseConfirm = window.prompt("Should it include uppercase letters? (Y/N?)");
-var lowercaseConfirm = window.prompt("Should it include lowercase letter (Y/N?)");
-var numConfirm = window.prompt("Should it include numbers? (Y/N?)");
-var spCharaConfirm = window.prompt("Should it special characters? (Y/N?)");
+if(chosenLength <  8){passLength = 8}
+else if(chosenLength > 128){
+ chosenLength = 128
+} else{
+ passLength = chosenLength;
+}
 
+var uppercaseConfirm = window.prompt("Should it include uppercase letters? (Y/N?)");
+if(uppercaseConfirm == 'y')
+{uppercase === true;}
+
+var lowercaseConfirm = window.prompt("Should it include lowercase letter (Y/N?)");
+if(lowercaseConfirm == 'y')
+{lowercase === true;}
+
+
+var numConfirm = window.prompt("Should it include numbers? (Y/N?)");
+if(numConfirm == 'y'){
+  numbers = true;
+};
+
+var spCharaConfirm = window.prompt("Should it special characters? (Y/N?)");
+if(spCharaConfirm == 'y'){
+  spChara = true;
+};
+
+//Random Generation Funcitons
 function getRandomUpper() {
   return upperCasedCharacters[Math.floor(Math.random() * upperCasedCharacters.length)];
 }
@@ -107,62 +134,30 @@ function getRandomSpChara() {
   return specialCharacters[Math.floor(Math.random() *  specialCharacters.length)];
 }
 
-//Prompt Checkers
-var passLength = 0;{
-  if(chosenLength <  8){passLength = 8}
-else if(chosenLength > 128){
- chosenLength = 128
-} else{
- passLength = chosenLength;
-}
-}
-
-var uppercase = false; {if(uppercaseConfirm == 'y'){
-  uppercase = true;
-}
-}
-
-var lowercase = false;{
-if(lowercaseConfirm == 'y'){
-  lowercase= true;
-}
-}
-
-var numbers = false;{
-if(numConfirm == 'y'){
-  numbers = true;
-}}
-
-var spChara = false;{
-if(spCharaConfirm == 'y'){
-  spChara = true;
-}
-}
+generateBtn.addEventListener("click", () => {
+password.value = writePassword(uppercase, lowercase, numbers, spChara, passLength)
+});
 
 
 
-
-//PasswordGenerator function
-function generatePassword(uppercase, lowercase, numbers, spChara, passLength) {
+//PasswordGenerator
+function writePassword(uppercase, lowercase, numbers, spChara, passLength) {
        let tempPassword = '';
-       let variationsCount = [uppercase, lowercase, numbers, spChara].passLength;
+       let variationsCount = [uppercase, lowercase, numbers, spChara].passlength;
 
        for (let i = 0; i < passLength; i+= variationsCount){
-          if(uppercase){
+          if(uppercase=== true){
             tempPassword += getRandomUpper();
         }
-        if(lowercase){
+        if(lowercase=== true){
           tempPassword += getRandomLower();
-      }  if(numbers){
+      }  if(numbers=== true){
         tempPassword += getRandomNum();
-    }  if(spChara){
+    }  if(spChara=== true){
       tempPassword += getRandomSpChara();
   }
 }
-
 var password = tempPassword.slice(0, passLength);
 
 return password;
 }
-
-generateBtn.addEventListener("click", generatePassword) 
